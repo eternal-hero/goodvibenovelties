@@ -1,0 +1,59 @@
+
+<link rel="stylesheet" href="{{ 'home-sec-three.css' | asset_url }}">
+<div class="home-sec-three container">
+  
+  {%- for block in section.blocks -%}
+    <div class="inner-background">
+      <div class="inner-bg-three" style="background-color: {{ block.settings.color_id }};">
+      <h2 class="sub_title">{{ block.settings.sub_title }}</h2>
+      <a href="{{ block.settings.btn_url }}" class="btn--text">{{ block.settings.btn }}</a>
+      </div>
+    </div>
+  {%- endfor -%}
+
+</div>
+
+{% schema %}
+  {
+    "name": "Home Section Three",
+    "class": "home-sec3",
+    "blocks": [
+    {
+      "type": "background",
+      "name": "background",
+      "settings": [
+        {
+          "type": "color",
+          "id": "color_id",
+          "label": "Add Background color"
+        },
+        {
+          "type": "html",
+          "id": "sub_title",
+          "label": "Add Sub Title"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Add Button Tex Link"
+        },
+        {
+          "type": "text",
+          "id": "btn",
+          "label": "Add Button Text"
+        }
+      ]
+    }
+   ],
+    "presets": [
+    {
+      "name": "Home Section Three",
+      "blocks": [
+        {
+          "type": "background"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}

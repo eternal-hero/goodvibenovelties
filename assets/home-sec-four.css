@@ -1,0 +1,72 @@
+.home-sec4 .home-sec-four.container .inner-four--logos {
+        display: flex;
+    max-width: 100%;
+    padding: 0 0;
+    margin: 30px auto 0;
+    justify-content: space-between;
+}
+.home-sec4 .home-sec-four.container .inner-four--logos .inner-logo {
+    padding: 0 15px;
+}
+.home-sec4 h3.head-four-sect {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000;
+    margin-bottom: 0;
+      border-bottom: 2px solid #ececec;  
+
+}
+.home-sec4 .home-sec-four.container {
+    padding-top: 0;
+    max-width: 1080px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.home-sec4 .home-sec-four.container {
+    padding-top: 0;
+}
+.home-sec4 .home-sec-four.container .inner-four--logos .inner-logo img {
+    width: 100%;
+}
+
+
+@media only screen and (max-width: 992px) 
+{
+ .home-sec4 .home-sec-four.container .inner-four--logos .inner-logo {
+    padding: 0 15px;
+} 
+}
+
+@media only screen and (max-width: 768px) 
+{
+  .home-sec4 .home-sec-four.container {
+    padding-top: 0;
+}
+  .home-sec4 h3.head-four-sect {
+    
+    margin-top: 27px;
+    margin-bottom: 0;
+}
+  .home-sec4 .home-sec-four.container .inner-four--logos { 
+    margin: 44px auto 0;
+    
+}
+}
+
+@media only screen and (max-width: 600px) 
+{
+  .home-sec4 .home-sec-four.container .inner-four--logos {
+    flex-direction: column;
+}
+.home-sec4 .home-sec-four.container .inner-four--logos .inner-logo {
+    padding: 20px 0;
+    max-width: 50%;
+    margin: 0 auto;
+}
+  
+}
+
+

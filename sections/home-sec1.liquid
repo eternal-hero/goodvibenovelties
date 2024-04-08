@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="{{ 'home-sec-one.css' | asset_url }}">
+<div class="home-sec-one container">
+  {%- for block in section.blocks -%}
+    
+    <div class="inner-background">
+      <div class="inner-bg-two" style="background-image: url('{{ block.settings.back_img | img_url: '' }}');">
+      <div class="home-sec-one-content">
+      <h4 class="offer-text">{{ block.settings.text1 }}<span class="for-extra-offer">{{ block.settings.offer }}</span>{{ block.settings.text2 }}</h4>
+      <h2 class="sub_title">{{ block.settings.sub_title }}</h2>
+      <a href="{{ block.settings.btn_url }}" class="btn--text">{{ block.settings.btn }}</a>
+      </div>
+    </div>
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+  {
+    "name": "Home Section One",
+    "class": "home-sec1",
+    "blocks": [
+    {
+      "type": "Background",
+      "name": "Background",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "back_img",
+          "label": "Add Background image"
+        },
+        {
+          "type": "text",
+          "id": "text1",
+          "label": "Add Text"
+        },
+        {
+          "type": "text",
+          "id": "offer",
+          "label": "Add Offer percentage"
+        },
+        {
+          "type": "text",
+          "id": "text2",
+          "label": "Add Text"
+        },
+        {
+          "type": "html",
+          "id": "sub_title",
+          "label": "Add Sub Title"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Add Button Tex Link"
+        },
+        {
+          "type": "text",
+          "id": "btn",
+          "label": "Add Button Text"
+        }
+      ]
+    }
+   ],
+    "presets": [
+    {
+      "name": "Home Section One",
+      "blocks": [
+        {
+          "type": "Background"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}

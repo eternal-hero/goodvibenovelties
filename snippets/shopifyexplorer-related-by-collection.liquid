@@ -1,0 +1,84 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/slick-carousel@1.5.9/slick/slick-theme.min.css'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/slick-carousel@1.5.9/slick/slick.min.css'>
+<script src='https://cdn.jsdelivr.net/npm/slick-carousel@1.5.9/slick/slick.min.js'></script>
+
+{% assign number_of_related_products = section.settings.number_of_related_products | plus:1 %}
+{% if collection == null or collection.handle == 'frontpage' or collection.handle == 'all' %}
+{% assign found_a_collection = false %}
+{% for c in product.collections %}
+  {% if found_a_collection == false and c.handle != 'frontpage' and c.handle != 'all' and c.all_products_count > 1 %}
+    {% assign found_a_collection = true %}
+    {% assign collection = c %}
+  {% endif %}
+{% endfor %}
+{% endif %}
+{% if collection and collection.products_count > 1 %}
+<section class="related-products" style="padding-top: 30px;">
+  <div class="page-width">
+      {% if section.settings.related_products_title != blank %}
+  <div class="section-header text-center">
+   <h2>{{ section.settings.related_products_title }}</h2>
+  </div>
+  {% endif %}
+  <div class="grid grid--uniform{% if collection.products_count >
+   0 %} grid--view-items{% endif %} related-carousel">
+      {% assign current_product = product %}
+      {% assign current_product_found = false %}
+      {% for product in collection.products limit: number_of_related_products %}
+        {% if product.handle == current_product.handle %}
+           {% assign current_product_found = true %}
+        {% else %}
+           {% unless current_product_found == false and forloop.last %}
+            {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+            {%- assign max_height = 350 -%}
+             <div class="grid__item {{ grid_item_width }}">
+              {% include 'product-card-grid', max_height: max_height %}
+            </div>
+           {% endunless %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% assign product = current_product %}
+{% endif %}
+<script>
+$('.related-carousel').slick({
+  infinite: true,
+  autoplay: true,
+  slidesToShow: 4, // Shows a three slides at a time
+  slidesToScroll: 1, // When you click an arrow, it scrolls 1 slide at a time
+  arrows: true,
+  dots: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+        arrows: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        }
+      },
+       {
+        breakpoint: 767,
+        settings: {
+        arrows: false,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 400,
+        settings: {
+        arrows: false,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        }
+      }
+    ]     
+  
+  });
+
+</script>

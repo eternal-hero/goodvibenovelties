@@ -1,0 +1,69 @@
+<div class="main-tab-section">
+  <div class="tab-block">
+    <div class="tabs">
+      <ul class="tabs-nav">
+        {%- for block in section.blocks -%}
+          <li><a href="#tab-{{ forloop.index }}">{{ block.settings.tab_title1 }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="tabs-stage">
+      {%- for block in section.blocks -%}
+        <div id="tab-{{ forloop.index }}">
+          {{ block.settings.tab_para1 }}
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Product Tab Section",
+    "class": "product-tab",
+    "blocks": [
+    {
+      "type": "Tab_block",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title1",
+          "label": "Add Tab Title"
+        },
+        {
+          "type": "html",
+          "id": "tab_para1",
+          "label": "Add Tab Para"
+        }
+      ]
+    }
+    ],
+    "presets": [
+    {
+      "name": "Product Tab Section",
+      "blocks": [
+        {
+          "type": "Tab_block"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}
+<script>
+// Show the first tab by default
+$('.tabs-stage div').hide();
+$('.tabs-stage div:first').show();
+$('.tabs-nav li:first').addClass('tab-active');
+
+// Change tab class and display content
+$('.tabs-nav a').on('click', function(event){
+  event.preventDefault();
+  $('.tabs-nav li').removeClass('tab-active');
+  $(this).parent().addClass('tab-active');
+  $('.tabs-stage div').hide();
+  $($(this).attr('href')).show();
+});
+</script>

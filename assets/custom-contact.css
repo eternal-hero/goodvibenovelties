@@ -1,0 +1,134 @@
+.FAQ-cont_form_area {
+    display: flex;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 15px;
+}
+.FAQ-cont_form_area .faq-area {
+    flex-basis: 50%;
+    max-width: 50%;
+}
+.FAQ-cont_form_area .contact-form-area {
+    flex-basis: 50%;
+    max-width: 50%;
+}
+.FAQ-cont_form_area .faq-area h1.faq-head,.FAQ-cont_form_area .contact-form-area h1.cont_form_title {
+    font-size: 20px;
+    border-bottom: 2px solid #ececec;
+    padding-bottom: 7.5px;
+    font-weight: 600;
+}
+
+.FAQ-cont_form_area .contact-form-area form label {
+    display: block;
+    color: #222;
+    font-size: 14px;
+}
+.FAQ-cont_form_area .contact-form-area form input {
+    width: 100%;
+    height: 35px;
+    box-shadow: inset 0 -1.8em 1em 0 transparent;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.FAQ-cont_form_area .contact-form-area form input[type="submit"] {
+    width: auto;
+    font-size: 15px;
+    text-transform: uppercase;
+    background: #E60060;
+    color: #fff;
+    border: none;
+    height: auto;
+    padding: 11px 20px;
+}
+.FAQ-cont_form_area .contact-form-area form textarea {
+    box-shadow: inset 0 -1.8em 1em 0 transparent;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+}
+.FAQ-cont_form_area .contact-form-area {
+    padding: 0 0 0 30px;
+}
+.FAQ-cont_form_area button.accordion {
+    background-color: transparent;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+    color: #777;
+      position: relative;
+  padding-left: 45px;
+      transition: all 2s ease;
+  -ms-transition: all 2s ease;
+  -webkit-transition: all 2s ease;
+      padding-top: 14px;
+    padding-bottom: 14px;
+}
+.FAQ-cont_form_area button.accordion:after {
+    content: "1";
+    left: 15px;
+    position: absolute;
+    background: url("https://cdn.shopify.com/s/files/1/0688/7469/9061/t/2/assets/angle-down.png") left center no-repeat;
+    width: 15px;
+    height: 9px;
+    color: transparent;
+    top: 23px;
+}
+.FAQ-cont_form_area button.accordion.active:after
+{
+ background: url("https://cdn.shopify.com/s/files/1/0688/7469/9061/t/2/assets/angle-top.png") left center no-repeat; 
+}
+
+.FAQ-cont_form_area .faq-area .panel
+{
+  border-bottom: 1px solid #ddd; 
+}
+.FAQ-cont_form_area .faq-area .panel p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #777;
+}
+.FAQ-cont_form_area button.accordion.active
+{
+  border-bottom: none;
+  background-color: #f7f7f7;
+}
+.FAQ-cont_form_area button.accordion:hover {
+    color: #E60060;
+}
+.FAQ-cont_form_area .contact-form-area form br {
+    display: none;
+} 
+.FAQ-cont_form_area .contact-form-area .form-fields {
+    margin-bottom: 20px;
+}
+.custom_contact_page .main-content.page-width {
+    max-width: 100%;
+    padding: 0;
+}
+.custom_contact_page .main-content.page-width .cont_map iframe {
+    width: 100%;
+}
+@media only screen and (max-width: 768px) {
+  .FAQ-cont_form_area {
+    
+    flex-direction: column;
+}
+  .FAQ-cont_form_area .faq-area, .FAQ-cont_form_area .contact-form-area {
+    flex-basis: 100%;
+    max-width: 100%;
+} 
+  .FAQ-cont_form_area .contact-form-area {
+    padding: 30px 0 0 0;
+}
+}
+@media only screen and (max-width: 480px)
+{
+ .FAQ-cont_form_area button.accordion {
+    font-size: 16px;
+       line-height: 1.5;
+    
+} 
+}

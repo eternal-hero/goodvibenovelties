@@ -1,0 +1,55 @@
+.register h1 {
+    text-transform: uppercase;
+    font-size: 27px;
+    
+}
+.register form {
+        margin-top: 15px !important;
+}
+.register form .field{
+    margin-top: 0;
+}
+.register form .field:before,.register form .field:after
+{
+  box-shadow:none;
+  border:none;
+      border-radius: 0 !important;
+}
+.register form .field input {
+    background-color: transparent;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+}
+.register form .field {
+    margin-bottom: 15px;
+}
+.customer form button {
+    border-radius: 0;
+    text-transform: uppercase;
+    background: #E60060;
+      margin: 15px 0;
+}
+.customer form button:before,.customer form button:after
+{
+  box-shadow:none;
+  border-radius:0;
+}
+.register form .field input:focus {
+    
+    box-shadow: inset 0 1px 2px #0000001a;
+    border-radius: 0;
+  padding:1.5em;
+}
+.field__input:focus~.field__label, .field__input:not(:placeholder-shown)~.field__label, .field__input:-webkit-autofill~.field__label, .customer .field input:focus~label, .customer .field input:not(:placeholder-shown)~label, .customer .field input:-webkit-autofill~label {
+   
+    font-size:0; 
+    left: calc(var(--inputs-border-width) + 2rem);
+    top: calc(1rem + var(--inputs-border-width));
+}
+.field:hover.field:after, .select:hover.select:after, .select__select:hover.select__select:after, .customer .field:hover.field:after, .customer select:hover.select:after, .localization-form__select:hover.localization-form__select:after {
+    box-shadow:none;
+    outline: 0;
+        
+}

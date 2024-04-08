@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="{{ 'home-sec-eight.css' | asset_url }}"> 
+<div class="home-sec-eight container">
+  <div class="home-sec-eight container-inner">
+  <h3 class="head-eight-sect">{{ section.settings.title }}</h3>
+  <div class="inner-eight--logos">
+    {%- for block in section.blocks -%}
+      <div class="inner-logo-text">
+        {% if block.settings.svg_logo != blank %}
+          {{ block.settings.svg_logo }}
+          <p class="logo--text">{{ block.settings.logo_text }}</p>
+        {% else %}
+          <img src="{{ block.settings.img | img_url: '' }}" alt="{{ block.settings.logo_text }}">
+          <p class="logo--text">{{ block.settings.logo_text }}</p>
+        {% endif %}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Home Section Eight",
+    "class": "home-sec8",
+    "blocks": [
+    {
+      "type": "Logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Add Logo Image"
+        },
+        {
+          "type": "html",
+          "id": "svg_logo",
+          "label": "Add Svg Logo"
+        },
+        {
+          "type": "text",
+          "id": "logo_text",
+          "label": "Add Logo text"
+        }
+      ]
+    }
+   ],
+    "presets": [
+    {
+      "name": "Home Section Eight",
+      "blocks": [
+        {
+          "type": "Logo"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}

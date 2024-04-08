@@ -1,0 +1,87 @@
+
+<div class="home-sec-four container">
+  <h3 class="head-four-sect">{{ section.settings.title }}</h3>
+  <div class="inner-four--logos checkout-product-range-wrapper">
+    {%- for block in section.blocks -%}
+      <div class="inner-logo">
+        {% if block.settings.svg_logo != blank %}
+          {{ block.settings.svg_logo }}
+        {% else %}
+          <img src="{{ block.settings.img | img_url: '' }}" alt="Logo" >
+        {% endif %}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Home Section custm",
+    "class": "home-sec4",
+    "blocks": [
+    {
+      "type": "Logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Add Logo Image"
+        },
+        {
+          "type": "html",
+          "id": "svg_logo",
+          "label": "Add Svg Logo"
+        }
+      ]
+    }
+   ],
+   "settings": [
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Add Title"
+        }
+   ],
+    "presets": [
+    {
+      "name": "Home Section custm",
+      "blocks": [
+        {
+          "type": "Logo"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}
+<script>
+// $('.checkout-product-range-wrapper').slick({
+//   infinite: true,
+//   autoplay: true,
+//   slidesToShow: 3, // Shows a three slides at a time
+//   slidesToScroll: 1, // When you click an arrow, it scrolls 1 slide at a time
+//   arrows: true,
+//     responsive: [
+//       {
+//         breakpoint: 1024,
+//         settings: {
+//         arrows: false,
+//         slidesToShow: 2,
+//         slidesToScroll: 1,
+//         }
+//       },
+//        {
+//         breakpoint: 767,
+//         settings: {
+//         arrows: false,
+//         slidesToShow: 1,
+//         slidesToScroll: 1,
+//         }
+//       }
+//     ]     
+  
+//   });
+
+  
+</script>

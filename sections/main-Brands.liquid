@@ -1,0 +1,97 @@
+{{ 'section-brand-list.css' | asset_url | stylesheet_tag }}
+<div class="page-width">
+  <div class="brand-page">
+        <div class="section-header text-center">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+      <div class="rte">
+        {{ page.content }}
+      </div>
+    <div class="topvendor">
+      <ul>
+<li>
+<a  href="{{ settings.vendor_link_1 }}">
+{{ settings.vendor_img_1 | img_url: 'master' | img_tag }}
+{% comment %}{{ settings.vendor_name_1 }}{% endcomment %}
+</a>
+</li>
+<li>
+<a  href="{{ settings.vendor_link_2 }}">
+{{ settings.vendor_img_2 | img_url: 'master' | img_tag }}
+{% comment %}{{ settings.vendor_name_2 }}{% endcomment %}
+</a>
+</li> 
+<li>
+<a  href="{{ settings.vendor_link_3 }}">
+{{ settings.vendor_img_3 | img_url: 'master' | img_tag }}
+{% comment %}{{ settings.vendor_name_3 }}{% endcomment %}
+</a>
+</li>
+<li>
+<a  href="{{ settings.vendor_link_4 }}">
+{{ settings.vendor_img_4 | img_url: 'master' | img_tag }}
+{% comment %}{{ settings.vendor_name_4 }}{% endcomment %}
+</a>
+</li>
+<li>
+<a  href="{{ settings.vendor_link_5 }}">
+{{ settings.vendor_img_5 | img_url: 'master' | img_tag }}
+{% comment %}{{ settings.vendor_name_5 }}{% endcomment %}
+</a>
+</li>        
+      </ul>
+{% for i in (1..5) %}
+ 
+{% endfor %}
+    </div>
+     <div class="vendor-list" id="designers-a-to-z"> 
+      {% assign totalCols = 3 %}
+      {% assign totalItems = shop.vendors | size %}
+      {% assign remainingCols = totalCols %}
+      {% assign remainingItems = totalItems %}
+      {% assign itemsToOutput = remainingItems | times: 1.0 | divided_by: remainingCols | ceil %}
+            {% assign current = "" %}
+        {% capture alphabet %}
+            -A-B-C-D-E-F-G-H-I-J-K-L-M-N-O-P-Q-R-S-T-U-V-W-X-Y-Z
+        {% endcapture %}
+            {% assign letters = alphabet | split: '-' %}
+        {% assign its_a_letter = false %}
+ 
+        {% for i in (1..totalCols) %}
+      
+            <ul class="brandlist">
+              {% for j in (1..itemsToOutput) %}
+           
+                      {% assign vendor_first_letter = vendor | strip | upcase | slice : 0 %}
+              	{% assign ind = totalItems | minus: remainingItems %}
+              
+              	{% include 'vendor-list-item', vendor: shop.vendors[ind] %}
+              	{% assign remainingItems = remainingItems | minus: 1 %}
+              {% endfor %}
+            </ul>
+        
+        {% if remainingItems == 0 %}
+	        {% break %}
+        {% endif %}
+        {% assign remainingCols = remainingCols | minus: 1 %}
+        {% assign itemsToOutput = remainingItems | times: 1.0 | divided_by: remainingCols | ceil %}
+        {% endfor %}
+        
+      </div>
+  
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

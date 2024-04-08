@@ -1,0 +1,130 @@
+.announcement-bar.annouc-bar-custom {
+    background: #E60060; 
+    padding: 10px 0;
+}
+.top-annouce {
+    display: flex;
+    justify-content: space-between;
+}
+.top-annouce .announce-left ul {
+    display: flex;
+     margin: 0 !important;
+    padding: 0;
+}
+.top-annouce .announce-left ul li:last-child {
+    position: relative;
+    top: 2px;
+    padding-top: 2px;
+}
+.top-annouce .announce-left ul li {
+    list-style: none;
+    font-size: 14px;
+    color: #fff;
+      border-left: 1px solid #fff;
+    line-height: 13px;
+      padding: 0 5px;
+}
+.top-annouce .announce-left ul li:first-child
+{
+  border-left:none;
+  padding-left:0;
+}
+.top-annouce .announce-left ul li span {
+    margin-right: 7px;
+}
+.top-annouce .announce-left ul li span img {
+    vertical-align: middle;
+}
+.top-annouce .announce-right {
+    display: flex;
+      align-items: center;
+}
+.announcement-bar.annouc-bar-custom .page-width {
+    max-width: 1080px;
+    padding: 0 15px;
+    
+}
+.top-annouce a p {
+    margin: 0;
+  color:#fff;
+}
+.announce-left a p {
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+    text-decoration: none;
+}
+.top-annouce a {
+    text-decoration: none;
+}
+.top-annouce .announce-right a p {
+    font-family: Lato;
+    font-size: 14px;   
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+  line-height: 13px;
+    padding: 0 27px;
+  border-left:1px solid #fff;
+}
+ .top-annouce .announce-right a:first-child p {
+    padding-left: 0;
+     border-left:none;
+}
+.top-annouce .announce-right a:last-child p {
+    padding-right: 0;
+}
+
+@media only screen and (max-width: 992px) 
+{
+  .top-annouce {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  .top-annouce .announce-left {
+    margin-bottom: 6px;
+}
+  .top-annouce .announce-right a p {
+    padding: 0 10px;
+  
+}
+}
+@media only screen and (max-width: 768px) 
+{
+  .top-annouce {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+  
+  .top-annouce .announce-right a p {
+    padding: 0 15px;
+    
+}
+  .top-annouce .announce-right {
+    display: none;
+}
+  .top-annouce .announce-left {
+    margin-bottom: 0;
+}
+}
+@media only screen and (max-width: 480px) 
+{
+  .top-annouce .announce-left ul {
+    flex-direction: column;
+}
+  .top-annouce .announce-left ul li:first-child {
+    padding-bottom: 5px;
+}
+  .top-annouce .announce-left ul li {
+  border: none;
+}
+}

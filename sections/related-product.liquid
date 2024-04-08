@@ -1,0 +1,34 @@
+<div class="main-related-product">
+  {% if section.settings.show_related_products %}
+   {% include 'shopifyexplorer-related-by-collection' %}
+  {% endif %}
+</div>
+{% schema %}
+  {
+    "name": "Related Product",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Related products"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_related_products",
+        "label": "Show related products",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "related_products_title",
+        "label": "Related products title",
+        "default": "You might also like"
+      },
+      {
+        "type": "number",
+        "id": "number_of_related_products",
+        "label": "Related products number",
+        "default": 8
+      }
+    ]
+  }
+{% endschema %}

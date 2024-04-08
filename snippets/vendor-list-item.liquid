@@ -1,0 +1,59 @@
+{% assign match = False %}
+{% assign vendor_collection_handle = vendor | handleize | strip | escape %}
+{% for collection in collections %}
+  {% assign vendor_first_letter = vendor | strip | upcase | slice : 0 %}
+  {% capture source %}{{ vendor | handleize | downcase }}.png{% endcapture %}
+{% assign vendor_logo = collection.image %}
+     {% for letter in letters %}
+                {% if vendor_first_letter == letter %}
+                    {% assign its_a_letter = true %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+
+	{% if vendor_collection_handle == collection.handle %}
+		{% assign match = true %}
+	{% endif %}
+{% endfor %}
+  {% if its_a_letter %}
+             {% unless vendor_first_letter == current %}
+                    <h3><span class="anchor" id="designers-{{ vendor_first_letter }}"></span>{{ vendor_first_letter }}</h3>
+                {% endunless %}
+{% if match %}
+  
+	<li class="vendor-list-item">
+
+
+
+      <a href="/collections/{{ vendor_collection_handle }}">
+  {{ vendor }}</a>
+    </li>
+{% else %}
+  {%  if vendor =="CalExotics"%}
+  {%  elsif vendor =="Doc Johnson's Kink" %}
+    {%  elsif vendor =="Lelo"%}
+    {%  elsif vendor =="Satisfyer"%}
+    {%  elsif vendor =="Evolved - Gender X"%}
+      {%  elsif vendor =="Evolved Novelties"%}
+  
+  {% else %}
+<li class="vendor-list-item">
+<!-- 
+  <div class="vendor_img"> <img src="https://cdn.shopify.com/s/files/1/0688/7469/9061/files/goodvibesex-ff-01_1.png"> 
+ <img src="{{ source | asset_url }}" alt={{ vendor }}>  </div>
+  -->
+<!--    <img src="{{ source | asset_url }}">   -->
+  {{ vendor | link_to_vendor }}
+ 
+</li>
+ {% endif %}
+{% endif %}
+      {% else %}
+    {% if match %}
+  
+	<li class="vendor-list-item"><a href="/collections/{{ vendor_collection_handle }}">{{ vendor }}</a></li>
+{% else %}
+	<li class="vendor-list-item">{{ vendor | link_to_vendor }}</li>
+{% endif %}
+      {% endif %}
+            {% assign current = vendor_first_letter %}

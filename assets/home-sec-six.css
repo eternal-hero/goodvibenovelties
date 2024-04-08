@@ -1,0 +1,223 @@
+.home-sec6 {
+    padding-top: 30px;
+}
+.home-sec6 .collection {
+    padding-top: 0;
+}
+.home-sec6 .gradient {
+    background-color: transparent;
+}
+.home-sec6 .collection__title.title-wrapper {
+    max-width: 1080px;
+    padding: 0 15px;
+}
+.home-sec6 h2.title.h1 {
+    text-align: left;
+  font-size: 20px;
+    font-weight: 800;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left; 
+  border-bottom: 2px solid #ececec;
+}
+.card__badge .badge
+{
+background: #E60060;
+    padding-bottom: 3px;
+    border: 1px solid #e60060;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+.home-sec6 .checkout-product-range-wrapper.collection-slider {
+    padding: 0 15px;
+      max-width: 1080px;  
+    margin: 0 auto;
+}
+.home-sec6 .card.card--card.card--media.color-background-1.gradient
+{
+  border:none;
+}
+
+.home-sec6 .card__media
+{
+  background-color:#f8f8f8;
+}
+ 
+.home-sec6 .card__content h3 a {
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0em;
+    text-align: left;
+    text-transform: capitalize;
+    color: #000;
+}
+.home-sec6 .checkout-product-range-wrapper.collection-slider .card__content .card__information p {
+    margin: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: rgba(38,1,107,0.7);
+}
+.home-sec6 .card__content .card-information {
+    text-align: left;
+    padding-top: 0;
+}
+
+.home-sec6 .card__content .card-information span.price-item.price-item--regular {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+.home-sec6  .card__information {
+    padding-bottom: 5px;
+  
+}
+.home-sec6 .quick-add__submit {
+    background: #E60060;
+    width: auto !important;
+margin:0;
+      border: none !important;
+    min-height: inherit;
+    box-shadow: none;
+font-size: 13px;
+font-weight: 700;
+line-height: 22px;
+letter-spacing: 0em;
+color:#fff;
+    text-transform: uppercase;
+  border-radius: 0;
+  padding: 10px 18px;
+    width: 125px !important;
+  min-width: inherit;
+
+}
+.home-sec6 .checkout-product-range-wrapper.collection-slider .card__content {
+    
+    padding: 30px 0 10px !important;
+}
+.home-sec6 .checkout-product-range-wrapper.collection-slider .slick-slide {
+    padding: 0 10px;
+  position:relative;
+}
+.home-sec6 .checkout-product-range-wrapper.collection-slider span.smartwishlist {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 15px!important;
+  z-index: 2 !important;
+    opacity:0 !important;
+  
+}
+.home-sec6 .checkout-product-range-wrapper.collection-slider .slick-slide:hover span.smartwishlist
+{
+  opacity:1 !important;
+}
+
+.home-sec6 .checkout-product-range-wrapper.collection-slider span.smartwishlist span.fa.fa-heart-o {
+    font-size: 16px;
+}
+/*.home-sec6 .checkout-product-range-wrapper.collection-slider .card-wrapper {
+    border: 1px solid #dddada;
+  
+}*/
+.home-sec6 .quick-add__submit:before,.home-sec6 .quick-add__submit:after
+{
+   box-shadow: none;
+  border: none !important;
+}
+
+.home-sec6 .slick-dots li button {
+    padding: 0 !important;
+    width: 13px;
+    height: 13px;
+}
+.home-sec6 .slick-dots li button:before {
+    width: 13px;
+    height: 13px;
+    background-color: #7B7B7B;
+    opacity: 1;
+    color: transparent;
+    border-radius: 50px;
+}
+
+.home-sec6 .slick-dots li.slick-active button:before {
+    color: transparent;
+    background-color:#E60060;
+  opacity:1;
+  
+}
+
+
+.home-sec6  ul.slick-dots {
+    bottom: -75px;
+  width: auto;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.home-sec6 button.slick-prev.slick-arrow {
+    background: url(https://cdn.shopify.com/s/files/1/0688/7469/9061/t/2/assets/arrow-left.png) left center no-repeat;
+    width: 34px;
+    height: 33px;
+     left: 37px;
+    z-index: 1;
+    top: 34%;
+  
+}
+.home-sec6 button.slick-next.slick-arrow {
+    background: url(https://cdn.shopify.com/s/files/1/0688/7469/9061/t/2/assets/arrow-right.png) right center no-repeat;
+    width: 34px;
+    height: 33px;     
+    right: 37px;
+z-index: 1;
+  top: 34%;
+}
+.home-sec6 button.slick-arrow:before  
+{
+  display:none;
+}
+
+
+
+
+@media only screen and (max-width: 768px)
+{
+  .home-sec6 {
+    padding-top: 0;
+}
+  
+}
+
+@media only screen and (max-width: 480px)
+{
+  .home-sec6 .slick-dots li
+{
+margin: 0 2px;
+}
+ .home-sec6 .card__content h3 a {
+    font-size: 13px;
+    display: block;
+    padding-right: 0;
+    line-height: 22px;
+}
+  .home-sec6 .quick-add__submit {
+    
+    font-size: 11px;
+    line-height: 22px;
+    padding: 6px 11px;
+    width: auto !important;
+    min-width: inherit;
+}
+}
+
+

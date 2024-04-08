@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="{{ 'home-sec-seven.css' | asset_url }}"> 
+<div class="home-sec-seven container">
+  <div class="sectSeven-content" style="background-image: url('{{ section.settings.img | img_url: '' }}');">
+    <img src="{{ section.settings.img | img_url: '' }}"  class="seven-content-img" alt="{{ section.settings.title }}">
+    <div class="sect-seven-container">
+    <div class="sect-seven-inner-container">
+    <h4 class="head-seven-sect">{{ section.settings.title }}</h4>
+    <p class="para-seven-sect">{{ section.settings.para }}</p>
+  </div>
+ </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Home Section Seven",
+    "class": "home-sec7",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Add Title"
+      },
+      {
+        "type": "html",
+        "id": "para",
+        "label": "Add Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "img",
+        "label": "Add Background Image"
+      }
+   ],
+    "presets": [
+    {
+      "name": "Home Section Seven"
+    }
+  ]
+  }
+{% endschema %}

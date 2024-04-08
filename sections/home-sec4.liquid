@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="{{ 'home-sec-four.css' | asset_url }}">  
+<div class="home-sec-four container">
+  <h3 class="head-four-sect">{{ section.settings.title }}</h3>
+  <div class="inner-four--logos">
+    {%- for block in section.blocks -%}
+      <div class="inner-logo">
+        {% if block.settings.svg_logo != blank %}
+          {{ block.settings.svg_logo }}
+        {% else %}
+          <img src="{{ block.settings.img | img_url: '' }}" alt="Logo">
+        {% endif %}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Home Section Four",
+    "class": "home-sec4",
+    "blocks": [
+    {
+      "type": "Logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Add Logo Image"
+        },
+        {
+          "type": "html",
+          "id": "svg_logo",
+          "label": "Add Svg Logo"
+        }
+      ]
+    }
+   ],
+   "settings": [
+       {
+          "type": "text",
+          "id": "title",
+          "label": "Add Title"
+        }
+   ],
+    "presets": [
+    {
+      "name": "Home Section Four",
+      "blocks": [
+        {
+          "type": "Logo"
+        }
+      ]
+    }
+  ]
+  }
+{% endschema %}

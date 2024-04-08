@@ -1,0 +1,87 @@
+<div class="main-tabing-area">
+      <div class="main-tabing-heads">
+<!--        <p class="p1" >DESCRIPTION</p> -->
+        <p class="p2 active">ADDITIONAL INFORMATION</p>
+        <p class="p3">REVIEWS </p>
+      </div>
+    </div>
+
+    <div class="main-tab-con-area">
+      <div class="tab-description" style="display:none;">
+                  
+            {%- if product.description != blank -%}
+              <div class="product__description rte quick-add-hidden">
+                {{ product.description }}
+              </div>
+            {%- endif -%}
+      </div>
+      <div class="tab-additional" >
+        <table >
+          <tbody>
+            
+            <tr>
+              <th>Weight</th>
+              <td> {{ product.variants.first.weight | weight_with_unit }} </td>
+            </tr>
+            <tr>
+              <th>Vendor</th>
+              
+              <td>{{ product.vendor | link_to_vendor }}</td>
+                
+            </tr>
+            <tr>
+              <th>Tag</th>
+            {% if product.tags.size > 0 %}  
+       <td>   
+          {% for tag in product.tags %}
+            {% assign tag_coll = '/search?q=' | append: tag %}
+            {{ tag | capitalize | link_to: tag_coll }}{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        </td>
+            {% endif %}
+            </tr>
+            
+            <tr>
+              <th>UPC</th>
+              <td>
+                {% for variant in product.variants %}
+                  {{ variant.barcode }}
+                {% endfor %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prod-review"style="display:none;">
+        <h4>No Reviews</h4>
+      </div>
+    </div>
+
+     <script>
+  jQuery(document).ready(function(){
+    jQuery(".p1").click(function(){
+      jQuery(".tab-additional").hide();
+      jQuery(".prod-review").hide();
+      jQuery(".tab-description").show();
+      $('.p1').addClass('active');
+      $('.p3').removeClass('active');
+      $('.p2').removeClass('active'); 
+    });
+    jQuery(".p2").click(function(){
+      jQuery(".prod-review").hide();
+      jQuery(".tab-description").hide();
+      jQuery(".tab-additional").show();
+      $('.p2').addClass('active');
+      $('.p1').removeClass('active');
+      $('.p3').removeClass('active');
+    });
+    jQuery(".p3").click(function(){
+      jQuery(".tab-description").hide();
+      jQuery(".tab-additional").hide();
+      jQuery(".prod-review").show();
+      $('.p3').addClass('active');
+      $('.p2').removeClass('active');
+      $('.p1').removeClass('active');
+    });
+  });
+</script>

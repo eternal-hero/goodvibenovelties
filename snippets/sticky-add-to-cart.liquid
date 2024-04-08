@@ -1,0 +1,67 @@
+<div id="huratips-addtocart-sticky" class="bottom_stiky_button"><div class="grid"><div class="grid__item one-whole"><span class="title_product">{{ product.title }}</span><span var_id="{{product.variants.first.id}}" class="price_add">{{ product.price | money }}</span> <button var_id="{{product.variants.first.id}}" type="submit" name="add" class="btn sticky_add_to_cart product-form__cart-submit" price="{{ product.variants.first.price | money }}">Add To Cart</button></div></div></div>
+<style>
+  #huratips-addtocart-sticky{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+    background: #fff;
+    padding-top: 5px;
+    border-top: 1px solid #e2e2e2;
+  }
+  #huratips-addtocart-sticky select,
+  #huratips-addtocart-sticky input,
+  #huratips-addtocart-sticky button{
+    height:40px;
+    margin:0 5px;
+    vertical-align: middle;
+  }
+  #huratips-addtocart-sticky input{
+    width: 60px;
+    text-align: center;
+  }
+  #huratips-addtocart-sticky button{
+    padding:0 10px;
+  }
+
+</style>
+
+<script>
+  (function () {
+    var previousScroll = 150;
+
+    $(window).scroll(function(){
+       var currentScroll = $(this).scrollTop();
+       if (currentScroll > previousScroll){
+       $(".sale-promo-banner").addClass("sale-promo-show");
+       } else {
+           $(".sale-promo-banner").removeClass("sale-promo-show");
+       }
+       previousScroll = currentScroll;
+    });
+}()); //run this anonymous function immediately
+  
+  $(window).scroll(function() {
+
+
+    
+    var e = $(window).width(),
+        t = $(".bottom_stiky_button"),
+        i = 300;
+    if (e <= 767) i = 850;
+    $(window).scrollTop() >= i ? t.addClass("fixed_button") : t.removeClass("fixed_button")
+  });
+  $("body").on("click", ".sticky_add_to_cart", function() {
+    $(".product-form__buttons").find("button.product-form__submit").click();
+  }),
+    $(document).ready(function() {
+    $('.product-form__input input[type="button"]').click(function() {
+      setTimeout(function() {
+        var e = window.location.href;
+        e = e.split("?variant=")[1], $(".sticky_add_to_cart").attr("var_id", e)
+      }, 1e3)
+    })
+  })
+</script>

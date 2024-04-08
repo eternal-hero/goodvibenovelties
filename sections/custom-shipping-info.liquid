@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="{{ 'custom-shipping.css' | asset_url }}">
+<div class="main-custom-shipping page-width">
+  {%- for block in section.blocks -%}
+  <div class="inner-wrapper ship-info">
+    <h3>{{ block.settings.Info_title }}</h3>
+    <p>{{ block.settings.Info_content }}</p>
+  </div>
+ {%- endfor -%}
+</div>
+
+
+{% schema %}
+  {
+    "name": "shipping-information",
+    "class": "custom-shipping-info",
+    "settings": [
+      
+    ],
+    "blocks": [
+    {
+      "type": "text",
+      "name": "Ship-info",
+      "settings": [
+        {
+          "type": "text",
+          "id": "Info_title",
+          "label": "Title",
+          "default": "Title"
+        },
+         {
+          "type": "textarea",
+          "id": "Info_content",
+          "label": "Content",
+          "default": "Content"
+        }
+      ]
+    }
+   ],
+    "presets": [
+    {
+      "name": "shipping-information"
+      
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,180 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{{ 'custom-contact.css' | asset_url }}">
+<div class="main-content page-width">
+  
+  <div class="map-address-area">
+    <div class="cont_map">
+      {{ section.settings.add_location }}
+    </div>
+    
+<!--     <div class="cont_address">
+      <h3 class="site-info">{{ section.settings.add_site }}</h3>
+      <p class="address-info">{{ section.settings.cont_address }}</p>
+      <p class="email-info">{{ section.settings.cont_gmail }}</p>
+      <span class="phone-info">{{ section.settings.contact_no }}</span>
+    </div> -->
+   
+  </div>
+
+  <div class="FAQ-cont_form_area">
+    <div class="faq-area">
+      <h1 class="faq-head">{{ section.settings.contact_faq_head }}</h1>
+      {% for block in section.blocks %}
+            <button class="accordion">{{ block.settings.faq_ques  }}</button>
+              <div class="panel">
+                <p>{{ block.settings.faq_ans }}</p>
+              </div>
+         {% endfor %}
+    </div>
+    <div class="contact-form-area">
+
+      <h1 class="cont_form_title">{{ section.settings.contact_form_head }}</h1>
+      
+      {% form 'contact' %}
+  {{ form.errors | default_errors }}
+
+  <div class="name form-fields">
+    <label for="name">Your Name (required)</label><br>
+    <input type="text" name="contact[name]" id="name" required="The field is required." />
+  </div>
+   
+  <div class="email form-fields">
+    <label for="email">Your Email (required)</label><br>
+    <input type="email" name="contact[email]" id="email" required="The field is required." />
+  </div>
+      
+  <div class="phone form-fields">
+    <label for="phone">Your Phone</label><br>
+    <input type="tel" name="contact[phone]" id="phone" required="The field is required." />
+  </div>
+
+  
+
+  <div class="Subject form-fields">
+    <label for="Subject">Subject</label><br>
+    <input type="text" name="contact[subject]" id="subject" />
+  </div>
+
+  <div class="message form-fields">
+    <label for="message">Your Message</label><br>
+    <textarea name="contact[body]" id="message"></textarea>
+  </div>
+
+  <div class="submit form-fields">
+    <input type="submit" value="Send" />
+  </div>
+{% endform %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Contact & FAQ",
+    "class": "custom_contact_page",
+    "settings": [
+      {
+      "type": "html",
+      "id": "add_location",
+      "label": "Google location Code"
+    },
+      {
+      "type": "text",
+      "id": "add_site",
+      "label": "Site detail"
+    },
+      {
+      "type": "textarea",
+      "id": "cont_address",
+      "label": "Add address"
+    },
+      {
+      "type": "text",
+      "id": "cont_gmail",
+      "label": "Add E-mail address"
+    },
+      {
+      "type": "text",
+      "id": "contact_no",
+      "label": "Add Phone No"
+    },
+      {
+      "type": "text",
+      "id": "contact_faq_head",
+      "label": "FAQ Title"
+    },
+      {
+      "type": "text",
+      "id": "contact_form_head",
+      "label": "Contact Form Title"
+    }
+    ],
+    "blocks": [
+{
+"type": "text",
+"name": "FAQ Accordion",
+"settings": [
+ {
+"type": "text",
+"id": "faq_ques",
+"label": "Add question"
+}, 
+{
+"type": "textarea",
+"id": "faq_ans",
+"label": "Add answer"
+}
+]
+}
+],
+      "presets": [
+    {
+      "name": "Contact & FAQ"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+  .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+{% endstylesheet %}
+
+{% javascript %}
+  var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+{% endjavascript %}

@@ -1,0 +1,118 @@
+.home-sec3 .home-sec-three.container {  
+display: flex;
+    padding: 0 15px;
+    align-items: center;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+  
+
+.home-sec3 .home-sec-three.container .inner-background:last-child {
+    padding: 0 0 0 20px;
+}
+.home-sec3 .home-sec-three.container .inner-background .inner-bg-three
+{
+  padding: 60px 0; 
+}
+.home-sec3 .home-sec-three.container .inner-background {
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: center;
+ 
+   
+}
+
+
+.home-sec3 .home-sec-three.container .inner-background h2.sub_title {
+font-size: 56px;
+    font-weight: 800;
+    line-height: 70px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #fff;
+    margin: 0 0 40px;  
+}
+
+.home-sec3 .home-sec-three.container .inner-background a.btn--text {
+    background: #FFFFFF;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #E60060;
+    padding: 10px 47px;
+}
+
+
+
+
+@media only screen and (max-width: 1199px)
+{
+  .home-sec3 .home-sec-three.container .inner-background h2.sub_title {
+    font-size: 49px;
+    line-height: 69px;
+}
+  
+}
+
+@media only screen and (max-width: 1024px)
+{
+  .home-sec3 .home-sec-three.container .inner-background h2.sub_title {
+    font-size: 44px;
+    line-height: 60px;
+}
+  
+}
+
+@media only screen and (max-width: 992px)
+{
+  .home-sec3 .home-sec-three.container .inner-background .inner-bg-three {
+    padding: 60px 24px;
+}
+  .home-sec3 .home-sec-three.container .inner-background h2.sub_title {
+    font-size: 36px;
+    line-height: 50px;
+}
+}
+
+@media only screen and (max-width: 768px)
+{
+ .home-sec3 .home-sec-three.container {
+    margin-top: 0;
+    flex-direction: column;    
+}
+.home-sec3 .home-sec-three.container .inner-background {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    width: 100%;
+}
+
+  .home-sec3 .home-sec-three.container .inner-background:last-child {
+    padding: 0;
+        margin-top: 20px;
+}
+  
+}
+
+@media only screen and (max-width: 480px)
+{
+  .home-sec3 .home-sec-three.container .inner-background a.btn--text {
+    font-size: 20px;
+    padding: 10px 29px;
+    display: table;
+    margin: 0 auto;
+}
+.home-sec3 .home-sec-three.container .inner-background .inner-bg-three {
+    padding: 30px 0px;
+}
+  .home-sec3 .home-sec-three.container .inner-background h2.sub_title {
+    font-size: 27px;
+    line-height: 43px;
+}
+}
+
+
+

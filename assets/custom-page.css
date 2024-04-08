@@ -1,0 +1,18 @@
+.custom-privacy-page h1.main-page-title {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+.custom-privacy-page .rte h1 {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.custom-privacy-page .page-width {
+    max-width: 1080px;
+ 
+    padding: 30px 15px;
+}
+.custom-privacy-page .rte h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}

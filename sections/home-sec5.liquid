@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="{{ 'home-sec-five.css' | asset_url }}">  
+<div class="home-sec-five container">
+  <div class="sectFive-content">
+    <div class="sectFive-content-inner">
+    <h3 class="head-five-sect">{{ section.settings.title }}</h3>
+    <p class="para-five-sect">{{ section.settings.para }}</p>
+  </div>
+  </div>
+  <div class="sectFive-img">
+      <img src="{{ section.settings.img | img_url: '' }}" alt="{{ section.settings.title }}">
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Home Section Five",
+    "class": "home-sec5",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Add Title"
+      },
+      {
+        "type": "html",
+        "id": "para",
+        "label": "Add Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "img",
+        "label": "Add Image"
+      }
+   ],
+    "presets": [
+    {
+      "name": "Home Section Five"
+    }
+  ]
+  }
+{% endschema %}

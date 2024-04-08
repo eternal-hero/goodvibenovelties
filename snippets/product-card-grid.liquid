@@ -1,0 +1,72 @@
+<div class="grid-view-item{% unless product.available %} product-price--sold-out grid-view-item--sold-out{% endunless %}">
+  <a class="grid-view-item__link grid-view-item__image-container" href="{{ product.url | within: collection }}">
+    {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+    {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+    {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+    {% unless product.featured_image == blank %}
+      {% include 'image-style' with image: product.featured_image, width: max_height, height: max_height, small_style: true, wrapper_id: wrapper_id, img_id: img_id %}
+    {% endunless %}
+    <span class="smartwishlist for-related" data-product="{{ product.id }}" data-variant="{{ product.variants.first.id }}"></span>
+    <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper js">
+      <div style="padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100}}%{% else %}100%{% endunless %};">
+        <img id="{{ img_id }}"
+             class="grid-view-item__image lazyload"
+             src="{{ product.featured_image | img_url: '300x300' }}"
+             data-src="{{ img_url }}"
+             data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+             data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+             data-sizes="auto"
+             alt="{{ product.featured_image.alt | escape }}">
+      </div>
+    </div>
+
+    <noscript>
+      {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+      <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
+    </noscript>
+    {% for collection in product.collections %}
+      <span class="relatedcoll-title">{{ collection.title }}</span>
+    {% endfor %}
+    <div class="h4 grid-view-item__title">{{ product.title }}</div>
+    <div class="for-related--reviews">
+      {% if product.metafields.loox.avg_rating != blank %}
+        <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}"></div>
+        <p class="col-prod-loox-rating">{{ product.metafields.loox.num_reviews }} Reviews</p>
+      {% endif %}
+    </div>
+<!--     <div class="product-description-short">
+      {{ product.description | truncate: 200 }}
+  </div> -->
+    {% if section.settings.show_vendor %}
+      <div class="grid-view-item__vendor">{{ product.vendor }}</div>
+    {% endif %}
+    <div class="grid-view-item__meta">
+      {% include 'price' %}
+    </div>
+  </a>
+  <input type="button" id="add-to-cart-button" class="view_prod" value="BUY NOW" onClick="addItemToCart({{product.selected_or_first_available_variant.id}}, 1)">
+<!--   <a href="{{ product.url }}" class="view_prod">
+    <p>VIEW PRODUCT</p>
+  </a> -->
+</div>
+<script>
+// Add to cart
+function addItemToCart(variant_id, qty) {
+	var cartCount = {{ cart.item_count }};
+    var obj = $(this);
+    data = {
+      "id": variant_id,
+      "quantity": qty
+    }
+    jQuery.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: data,
+      dataType: 'json',
+      success: function() { 
+        window.location.href = '/cart'; 
+      }
+    });
+  }
+</script>

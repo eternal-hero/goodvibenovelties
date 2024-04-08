@@ -1,0 +1,70 @@
+<div class="main-cart-banner page-width">
+{% assign free_shipping = true %}
+
+{%- for item in cart.items -%}
+    {%- if cart.total_price < 6900 -%}
+      {% assign free_shipping = false %}
+      <div class="banner-content">
+        <div class="bann-left">
+          <img src="{{ section.settings.lock_img | img_url: '63x84' }}" alt="Free Shipping Sex Toys Vibrators">
+        </div>
+        <div class="bann-right" style="padding-top:20px;">
+          <h4>GET FREE SHIPPING AT $69+ </h4>
+          <h5>You're just {{ 6900 | minus: cart.total_price | money }} away from free shipping!</h5>
+           <p style="text-align: center">One or more of the items in your cart does not qualify for free shipping.</p>
+        </div>
+      </div>
+      {% break %}
+    {% endif %}
+{%- endfor -%}
+
+{% if free_shipping %}
+  <div class="banner-content">
+    <div class="bann-left" style='margin-top:15px;'>
+      <img src="{{ section.settings.unlock_img | img_url: '63x84' }}" width='85px' alt="Free Shipping Sex Toys Vibrators">
+    </div>
+    <div class="bann-right" style="padding-top:30px; padding-bottom:30px">
+      <h4>AWESOME! YOU SCORED FREE SHIPPING!</h4>
+      <h5>Use Coupon Code: FS69GV</h5>
+      {%- for item in cart.items -%}
+        {% if item.grams > 907.185 %}
+           <p style="text-align: center">One or more of the items in your cart does not qualify for free shipping.</p>
+          {% break %}
+        {% endif %}
+      {%- endfor -%}
+    </div>
+  </div>
+{% endif %}
+
+  
+</div>
+
+
+{% schema %}
+  {
+    "name": "Cart-banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "unlock_img",
+        "label": "Unlock Image"
+      }, 
+        {
+        "type": "image_picker",
+        "id": "lock_img",
+        "label": "Lock Image"
+      }
+    ],
+      "presets": [
+    {
+      "name": "Cart-banner"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
